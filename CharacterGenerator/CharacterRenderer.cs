@@ -61,6 +61,7 @@ public class CharacterRenderer : Game
     {
         _graphics = new GraphicsDeviceManager(this);
         _graphics.SynchronizeWithVerticalRetrace = false;
+        IsFixedTimeStep = false;
         _graphics.PreferredBackBufferWidth = WindowWidth;
         _graphics.PreferredBackBufferHeight = WindowHeight;
         _graphics.ApplyChanges();
@@ -88,11 +89,6 @@ public class CharacterRenderer : Game
 
     protected override void Update(GameTime gameTime)
     {
-        if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed ||
-            Keyboard.GetState().IsKeyDown(Keys.Escape))
-        {
-            Exit();
-        }
 
         // TODO: Add your update logic here
 
@@ -116,7 +112,7 @@ public class CharacterRenderer : Game
         _spriteBatch.End();
 
         GraphicsDevice.SetRenderTarget(null);
-        GraphicsDevice.Clear(WindowBackgroundColor);
+        //GraphicsDevice.Clear(WindowBackgroundColor);
         _spriteBatch.Begin(transformMatrix: _screenMatrix);
         _spriteBatch.Draw(_renderTarget, Vector2.Zero, null, Color.White);
         _spriteBatch.End();

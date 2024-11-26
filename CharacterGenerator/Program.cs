@@ -36,7 +36,7 @@ var renderer = new CharacterRenderer();
 
 if (CharacterRenderer.ScreenshotCount == 0)
 {
-    Console.WriteLine("Press Ctrl+C (Terminal) or Escape (Render Preview) to stop");
+    Console.WriteLine("Press Ctrl+C (Terminal) to stop");
 }
 renderer.Run();
 renderer.Dispose();
